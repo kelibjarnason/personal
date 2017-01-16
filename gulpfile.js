@@ -143,3 +143,12 @@ gulp.task('browser', shell.task(['open http://localhost:8888']));
 
 // Default task
 gulp.task("default", ["serve", "sass", "js", "img", "copy", "watch", "browser"]);
+
+// Deploy gh-pages
+var gulp = require('gulp');
+var ghPages = require('gulp-gh-pages');
+
+gulp.task('deploy', function() {
+  return gulp.src('./dist/**/*')
+    .pipe(ghPages());
+});
